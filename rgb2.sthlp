@@ -25,7 +25,8 @@
 
 {pstd}
 {cmd:rgb2} creates random variates from the Generalized Beta of a Second Kind 
-Distribution. Delta, sigma, p, and q are specified by the user.
+Distribution. Delta, sigma, p, and q are specified by the user. Note that p, q >0 
+and -2 < sigma < 2.
 
 {marker references}{...}
 {title:References}
