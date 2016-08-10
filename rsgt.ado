@@ -60,7 +60,7 @@ mata:
 			}
 		}
 	else{
-		cdflist = interpolategb2(paravec)
+		cdflist = interpolatesgt(paravec)
 		
 		for (i=1; i <=nobs; i++){
 			newvar[i] = nearest_sgt(cdflist,base[i])
