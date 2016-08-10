@@ -40,6 +40,7 @@ support contact Jacob at orchard.jake@gmail.com.
 {title:References}
 
 {phang}
-James B., McDonald. 1984. {it: Some Generalized Function for the Size Distribution of Income}
+James B., McDonald. 1984. {it: Some Generalized Function for the Size 
+Distribution of Income}
 
 
