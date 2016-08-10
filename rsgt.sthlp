@@ -28,6 +28,13 @@
 Distribution. Mu, Lambda, Sigma, p, and q are specified by the user. Note that sigma,
 p, and q are positve and -1 < lambda <1.
 
+{marker author}{...}
+{title: Author}{...}
+
+{phang}
+Authored by James McDonald and Jacob Orchard at Brigham Young University. For
+support contact Jacob at orchard.jake@gmail.com.
+
 
 {marker references}{...}
 {title:References}

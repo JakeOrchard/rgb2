@@ -4,10 +4,13 @@ d Jacob Orchard, Brigham Young University Department of Economics
 
 
 d rgb2 creates random variates from the Generalized Beta of a Second Kind 
-d Distribution. Delta, sigma, p, and q are specified by the user.
+d Distribution. a, b, p, and q are specified by the user. Also includes
+d a similar function for the SGT distribution.
 d 
 d Support: orchard.jake@gmail.com
 d 
 p rgb2 Random GB2 Variates
 f rgb2.ado
 f rgb2.sthlp
+f rsgt.ado
+f rsgt.sthlp

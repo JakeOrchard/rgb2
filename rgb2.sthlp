@@ -17,7 +17,7 @@
 {title:Syntax}
 
 {p 8 20 2}
-{cmdab:rgb2} {it:{help varname:varname}} delta sigma p q
+{cmdab:rgb2} {it:{help varname:varname}} a b p q
 
 
 {marker description}{...}
@@ -25,16 +25,19 @@
 
 {pstd}
 {cmd:rgb2} creates random variates from the Generalized Beta of a Second Kind 
-Distribution. Delta, sigma, p, and q are specified by the user. Note that p, q >0 
-and -2 < sigma < 2.
+Distribution. a, b, p, and q are specified by the user. Note that all parameter 
+values must be positive.
+
+{marker author}{...}
+{title: Author}{...}
+
+{phang}
+Authored by James McDonald and Jacob Orchard at Brigham Young University. For
+support contact Jacob at orchard.jake@gmail.com.
+
 
 {marker references}{...}
 {title:References}
-
-{phang}
-James B., McDonald, Olga Stoddard, and Daniel Walton. 2016.
-{it:On using interval response data in experimental economics},
-working paper.
 
 {phang}
 James B., McDonald. 1984. {it: Some Generalized Function for the Size Distribution of Income}

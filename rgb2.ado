@@ -11,10 +11,10 @@ version 13.0
 		display "Replay not implemented"
 	}
 	else {
-	args varname delta sigma p q 
+	args varname a b p q 
 		confirm name `varname'
-		confirm number `delta' 
-		confirm number `sigma'
+		confirm number `a' 
+		confirm number `b'
 		confirm number `p'
 		confirm number `q'
 		
@@ -24,11 +24,14 @@ version 13.0
 		if `q' <=0{
 			di as error "Parameter q must be positive"
 		}
-		if `sigma' <= -2 | `sigma' >= 2{
-			di as error "Parameter sigma must be between -2 and 2"
+		if 	`a' <= 0{
+			di as error "Parameter a must be positive"
+		}
+		if `b' <= 0{
+			di as error "Parameter b must be positive"
 		}
 		
-		quietly mata: rgb2("`varname'",`delta',`sigma',`p',`q')
+		quietly mata: rgb2("`varname'",`a',`b',`p',`q')
 	}
 
 end
@@ -37,12 +40,12 @@ end
 
 version 13
 mata:
-	function rgb2(string myvar, scalar delta, scalar sigma, scalar p, scalar q)
+	function rgb2(string myvar, scalar a, scalar b, scalar p, scalar q)
 	{
 	nobs = st_nobs()
 	base = runiform(nobs,1)
 	newvar = J(nobs,1,0)
-	paravec = delta,sigma,p,q
+	paravec = a,b,p,q
 	
 	if (nobs <1000){
 	
@@ -68,8 +71,8 @@ mata:
 	function estimategb2(paravec,unifval)
 	{
 	
-		delta = paravec[1]
-		sigma = paravec[2]
+		a = paravec[1]
+		b = paravec[2]
 		p     = paravec[3]
 		q     = paravec[4]
 		
@@ -79,7 +82,7 @@ mata:
 		optimize_init_evaluator(S,&closestgb2())
 		
 		//Expected Value (starting value)
-		start = exp(delta)*( (exp(lngamma(p+sigma))*exp(lngamma(q-sigma)))/( exp(lngamma(p))*exp(lngamma(q))))
+		start = b*((exp(lngamma(p+(1/a)))*exp(lngamma(q-(1/a))))/( exp(lngamma(p))*exp(lngamma(q))))
 		optimize_init_params(S,start)
 		optimize_init_argument(S,1,paravec)
 		optimize_init_argument(S,2,unifval)
@@ -134,11 +137,11 @@ mata:
 function gb2_cdf(matrix y, paravec)
 	{
 	ones = J(1,cols(y),1)
-	delta = paravec[1]
-	sigma = paravec[2]
+	a = paravec[1]
+	b = paravec[2]
 	p = paravec[3]
 	q = paravec[4]
-	zu = ((y:/exp(delta)):^(1/sigma)):/(ones+(y:/exp(delta)):^(1/sigma))
+	zu = ((y:/b):^(a)):/(ones+(y:/b):^(a))
 	F =  ibeta(p,q,zu)
 	return(F)
 	}
