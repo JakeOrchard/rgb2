@@ -24,7 +24,7 @@
 {title:Description}
 
 {pstd}
-{cmd:rgb2} creates random variates from the Skewed Generalized T 
+{cmd:rsgt} creates random variates from the Skewed Generalized T 
 Distribution. Mu, Lambda, Sigma, p, and q are specified by the user. Note that 
 sigma, p, and q are positve and -1 < lambda <1.
 
