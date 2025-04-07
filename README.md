@@ -1,3 +1,5 @@
+This project is no longer maintained.
+
 # rgb2
 Random GB2 number generation
 
